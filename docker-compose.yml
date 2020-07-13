@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  dev:
+    build: .
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    volumes:
+      - bundle:/usr/local/bundle
+      - .:/app:delegated
+      - "${HOME}/.gitconfig:/root/.gitconfig"
+    working_dir: /app
+  app:
+    build: .
+    depends_on:
+      - webpack-dev-server
+    ports: 
+      - 3000:3000
+    volumes:
+      - bundle:/usr/local/bundle
+      - .:/app:delegated
+    working_dir: /app
+  webpack-dev-server:
+    build: .
+    command: bin/webpack-dev-server
+    ports:
+      - 3035:3035
+    volumes:
+      - bundle:/usr/local/bundle
+      - .:/app:delegated
+    working_dir: /app
+
+volumes:
+  bundle:
