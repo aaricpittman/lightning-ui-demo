@@ -5,7 +5,7 @@ ruby '2.5.6'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'lightning-ui'
 gem 'jbuilder', '~> 2.7'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 gem 'sass-rails', '>= 6'
 gem 'pg'
